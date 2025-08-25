@@ -1,0 +1,15 @@
+db/
+  schema.sql                 -- CREATE TABLE + constraints + indexes
+  seeds.sql                  -- sample patients, doctors, appointments
+procedures/
+  spScheduleAppointment.sql  -- schedule (with basic conflict checks)
+  spCompleteAppointment.sql  -- mark as Completed
+  spCancelAppointment.sql    -- mark as Canceled
+views/
+  vwUpcomingAppointments.sql -- next 30 days by doctor
+  vwDoctorWorkload.sql       -- simple utilization/volume view
+samples/
+  queries.sql                -- runnable examples (doctor schedule, 6-mo visits, etc.)
+docs/
+  ERD.png                    -- optional exported diagram
+LICENSE
