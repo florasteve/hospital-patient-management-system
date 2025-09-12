@@ -68,20 +68,22 @@ erDiagram
 
 If you see errors like:
 
-- `Invalid column name 'Age'` or `Invalid column name 'Contact'`
+- `Invalid column name 'Age'` / `'Contact'`
 - `Cannot insert the value NULL into column 'DateOfBirth'`
 - `MERGE ... conflicted with FOREIGN KEY constraint 'FK_Appointments_Patients'`
 
-…it means your running database schema drifted from the repo’s expected schema (e.g., columns renamed, set NOT NULL, or missing).
+…it means the live DB schema drifted from what the seeds expect.
 
-**Fix (non-destructive):** Align the live schema, then re-run the CSV seeder.
+**Fix (non-destructive):** align the schema, then re-seed.
 
 ```bash
-# From docker/ (Git Bash on Windows)
-set +H; printf "SA_PASSWORD=YourStrong!Passw0rd\n" > ./.env; set -a; source ./.env; set +a
+# From docker/ (Git Bash)
+set +H; printf "SA_PASSWORD=YourStrong!Passw0rd
+" > ./.env; set -a; source ./.env; set +a
 
 # Align: add/rename/make columns nullable if needed
-docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" -i /var/opt/mssql/scripts/ddl/99_align_schema.sql
+docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" \
+  -i /var/opt/mssql/scripts/ddl/99_align_schema.sql
 
 # Ensure Patients.DateOfBirth is nullable (CSV doesn’t include DOB)
 docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" -Q "
@@ -93,14 +95,12 @@ ELSE IF COLUMNPROPERTY(OBJECT_ID('dbo.Patients'),'DateOfBirth','AllowsNull') = 0
 "
 
 # Re-seed from CSVs (reads from /var/opt/mssql/imports)
-docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" -i /var/opt/mssql/scripts/dml/05_seed_from_csv.sql
+docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" \
+  -i /var/opt/mssql/scripts/dml/05_seed_from_csv.sql
 
 # Verify
 docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" -Q "USE HospitalDB;
 SELECT COUNT(*) Doctors FROM dbo.Doctors;
 SELECT COUNT(*) Patients FROM dbo.Patients;
 SELECT COUNT(*) Appointments FROM dbo.Appointments;"
-Reset (destructive): If you want to wipe and rebuild the tables exactly:
-docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" -i /var/opt/mssql/scripts/ddl/01_schema.sql
-docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" -i /var/opt/mssql/scripts/dml/05_seed_from_csv.sql
 
