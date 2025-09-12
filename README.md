@@ -63,6 +63,7 @@ erDiagram
     datetime AppointmentDateTime
     string Status
   }
+```
 
 ## Troubleshooting — Schema drift & CSV seeding
 
