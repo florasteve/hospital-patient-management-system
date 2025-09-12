@@ -1,6 +1,4 @@
-DoctorID,FirstName,LastName,Specialty,Phone,Email
-101,Aria,Johnson,Primary Care,704-555-1101,aria.johnson@hospital.example
-102,Ethan,Smith,Cardiology,704-555-1102,ethan.smith@hospital.example
-103,Charlotte,Davis,Orthopedics,704-555-1103,charlotte.davis@hospital.example
-104,Lucas,Anderson,Neurology,704-555-1104,lucas.anderson@hospital.example
-105,Amelia,Wilson,Pediatrics,704-555-1105,amelia.wilson@hospital.example
+DoctorID,FirstName,LastName,Specialization,Contact,CreatedAt,UpdatedAt
+1,Maya,Singh,Cardiology,maya.singh@hospital.local,2025-08-01T09:00:00,2025-08-01T09:00:00
+2,Noah,Brooks,Orthopedics,noah.brooks@hospital.local,2025-08-01T09:00:00,2025-08-01T09:00:00
+3,Olivia,Diaz,Family Medicine,olivia.diaz@hospital.local,2025-08-01T09:00:00,2025-08-01T09:00:00
