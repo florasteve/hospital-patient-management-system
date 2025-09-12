@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Pass all args straight through to container's sqlcmd
+exec docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd "$@"
