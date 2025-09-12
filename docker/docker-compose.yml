@@ -1,0 +1,18 @@
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: hospital-mssql
+    ports: ["1433:1433"]
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${SA_PASSWORD:-YourStrong!Passw0rd}
+    volumes:
+      - mssql-data:/var/opt/mssql
+      - ./backups:/var/opt/mssql/backups
+    healthcheck:
+      test: [ "CMD", "/opt/mssql-tools18/bin/sqlcmd", "-C", "-S", "localhost", "-U", "SA", "-P", "${SA_PASSWORD:-YourStrong!Passw0rd}", "-Q", "SELECT 1" ]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+volumes:
+  mssql-data: {}

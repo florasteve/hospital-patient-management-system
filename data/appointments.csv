@@ -1,0 +1,11 @@
+AppointmentID,PatientID,DoctorID,AppointmentDateTime,Status,Reason,Notes
+1001,1,101,2025-09-13T09:00:00,Scheduled,Annual physical,First visit at this clinic
+1002,2,102,2025-09-13T10:30:00,Scheduled,Chest pain follow-up,Review lab results
+1003,3,103,2025-09-13T11:00:00,Completed,Knee pain,Completed—prescribed PT
+1004,4,101,2025-09-14T14:00:00,Cancelled,Cold/flu symptoms,Cancelled by patient
+1005,5,105,2025-09-14T15:30:00,Scheduled,Immunization,Bring vaccination record
+1006,6,104,2025-09-15T09:15:00,Scheduled,Headache evaluation,Check MRI results
+1007,7,103,2025-09-15T11:45:00,Scheduled,Shoulder pain,Assess range of motion
+1008,8,102,2025-09-16T10:00:00,Scheduled,Hypertension review,Adjust medication
+1009,9,101,2025-09-16T13:00:00,Scheduled,Lab result discussion,—
+1010,10,105,2025-09-17T08:30:00,Scheduled,Routine checkup,—

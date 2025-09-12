@@ -1,0 +1,11 @@
+PatientID,FirstName,LastName,DateOfBirth,Gender,Phone,Email,Address,City,State,Zip
+1,Emma,Lopez,1988-03-14,F,704-555-0142,emma.lopez@example.com,1820 Maple St,Charlotte,NC,28202
+2,Liam,Patel,1992-11-02,M,704-555-0197,liam.patel@example.com,55 Oak Terrace,Charlotte,NC,28203
+3,Ava,Nelson,1975-07-28,F,704-555-0123,ava.nelson@example.com,910 Pine Ct,Davidson,NC,28036
+4,Noah,Brown,1969-01-09,M,704-555-0175,noah.brown@example.com,77 Lakeview Dr,Mooresville,NC,28117
+5,Sophia,Kim,2001-06-22,F,704-555-0158,sophia.kim@example.com,340 Birch Rd,Huntersville,NC,28078
+6,Oliver,Garcia,1983-09-05,M,704-555-0111,oliver.garcia@example.com,12 Summit Ave,Concord,NC,28027
+7,Isabella,Wright,1999-12-31,F,704-555-0186,isabella.wright@example.com,502 Cedar Ln,Charlotte,NC,28205
+8,Elijah,Rivera,1986-04-17,M,704-555-0105,elijah.rivera@example.com,201 Brook Trail,Davidson,NC,28036
+9,Mia,Thompson,1979-08-13,F,704-555-0190,mia.thompson@example.com,845 Aspen Way,Charlotte,NC,28211
+10,James,Martinez,1995-02-26,M,704-555-0162,james.martinez@example.com,66 Willow Blvd,Charlotte,NC,28209
