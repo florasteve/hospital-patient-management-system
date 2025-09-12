@@ -1,0 +1,6 @@
+DoctorID,FirstName,LastName,Specialty,Phone,Email
+101,Aria,Johnson,Primary Care,704-555-1101,aria.johnson@hospital.example
+102,Ethan,Smith,Cardiology,704-555-1102,ethan.smith@hospital.example
+103,Charlotte,Davis,Orthopedics,704-555-1103,charlotte.davis@hospital.example
+104,Lucas,Anderson,Neurology,704-555-1104,lucas.anderson@hospital.example
+105,Amelia,Wilson,Pediatrics,704-555-1105,amelia.wilson@hospital.example
