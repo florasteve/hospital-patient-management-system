@@ -58,6 +58,18 @@ CREATE TABLE #Appointments(
 BULK INSERT #Appointments
 FROM '/var/opt/mssql/imports/appointments.csv'
 WITH (FIRSTROW=2, FIELDTERMINATOR=',', ROWTERMINATOR='0x0d0a', TABLOCK);
+
+-- Normalize Status to satisfy CHECK constraint
+UPDATE #Appointments
+SET Status =
+  CASE UPPER(LTRIM(RTRIM(Status)))
+    WHEN 'SCHEDULED' THEN 'Scheduled'
+    WHEN 'COMPLETED' THEN 'Completed'
+    WHEN 'CANCELED'  THEN 'Canceled'
+    WHEN 'CANCELLED' THEN 'Canceled'   -- map double-L to single-L
+    ELSE LTRIM(RTRIM(Status))
+  END;
+
 MERGE dbo.Appointments AS tgt
 USING #Appointments AS src ON tgt.AppointmentID=src.AppointmentID
 WHEN NOT MATCHED BY TARGET THEN
