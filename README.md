@@ -104,3 +104,35 @@ Reset (destructive): If you want to wipe and rebuild the tables exactly:
 docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" -i /var/opt/mssql/scripts/ddl/01_schema.sql
 docker exec -i hospital-mssql /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U SA -P "$SA_PASSWORD" -i /var/opt/mssql/scripts/dml/05_seed_from_csv.sql
 
+
+## ER Diagram
+
+```mermaid
+erDiagram
+  PATIENTS ||--o{ APPOINTMENTS : books
+  DOCTORS  ||--o{ APPOINTMENTS : schedules
+
+  PATIENTS {
+    int PatientID PK
+    string FirstName
+    string LastName
+    int Age
+    string Gender
+    string Contact
+  }
+
+  DOCTORS {
+    int DoctorID PK
+    string FirstName
+    string LastName
+    string Specialization
+    string Contact
+  }
+
+  APPOINTMENTS {
+    int AppointmentID PK
+    int PatientID FK
+    int DoctorID FK
+    datetime AppointmentDateTime
+    string Status
+  }
