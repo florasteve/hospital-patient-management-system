@@ -1,12 +1,13 @@
+
+# Hospital Patient Management System
+
 <!-- Badges -->
 [![License](https://img.shields.io/github/license/florasteve/hospital-patient-management-system)](LICENSE)
 [![Last commit](https://img.shields.io/github/last-commit/florasteve/hospital-patient-management-system)](https://github.com/florasteve/hospital-patient-management-system/commits/main)
 [![Open issues](https://img.shields.io/github/issues/florasteve/hospital-patient-management-system)](https://github.com/florasteve/hospital-patient-management-system/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/florasteve/hospital-patient-management-system/pulls)
-![DB: SQL Server](https://img.shields.io/badge/DB-Microsoft%20SQL%20Server-CC2927?logo=microsoft-sql-server&logoColor=white)
-![Container: Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker&logoColor=white)
-
-# Hospital Patient Management System
+[![DB: SQL Server](https://img.shields.io/badge/DB-Microsoft%20SQL%20Server-CC2927?logo=microsoft-sql-server&logoColor=white)](https://www.microsoft.com/en-us/sql-server)
+[![Container: Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com)
 
 Relational database for managing **patients, doctors, and appointments** in a hospital or clinic setting.  
 Built for **SQL Server** in **SSMS** with a normalized schema, **T-SQL** stored procedures, and reporting views.
